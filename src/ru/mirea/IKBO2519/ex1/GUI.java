@@ -13,6 +13,8 @@ public class GUI extends JFrame {
     private Label Winner = new Label("Winner: DRAW");
     private JLabel EmptyContainer = new JLabel("");
 
+
+
     public GUI() {
         super("FOOTBALL SCORER");
         this.setBounds(100, 100, 500, 100);
@@ -36,8 +38,8 @@ public class GUI extends JFrame {
             x++;
             LastScorer.setText("Last Scorer: AC Milan");
             Result.setText("              Result: " + String.valueOf(x) + " X " + String.valueOf(y));
+            WhoWinner(x,y);
         }
-
     }
 
     class ButtonEventListener2 implements ActionListener {
@@ -45,6 +47,23 @@ public class GUI extends JFrame {
             y++;
             LastScorer.setText("Last Scorer: Real Madrid");
             Result.setText("              Result: " + String.valueOf(x) + " X " + String.valueOf(y));
+            WhoWinner(x,y);
+        }
+    }
+
+    public void WhoWinner (int x,int y)
+    {
+        if (x>y)
+        {
+            Winner.setText("Winner: AC Milan");
+        }
+        if (x<y)
+        {
+            Winner.setText("Winner: Real Madrid");
+        }
+        if (x==y)
+        {
+            Winner.setText("Winner: DRAW");
         }
     }
 }
